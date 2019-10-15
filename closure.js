@@ -1,5 +1,3 @@
-console.log("Working");
-
 function wrapper() {
   var one = 1;
   function closure() {
