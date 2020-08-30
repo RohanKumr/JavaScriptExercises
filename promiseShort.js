@@ -1,13 +1,8 @@
-let promise = new Promise(function (resolve, reject) {
-    let status = false;
-    status ? resolve("Fulfilled") : reject("Pending")
-
-});
+let promise = new Promise((resolve, reject) => true ? resolve("Fulfilled") : reject("Pending"));
 
 promise
     .then((fromResolve) => console.log("Promise is " + fromResolve))
     .catch((fromReject) => console.log("Promise is " + fromReject))
-
 
 let promise1 = () => new Promise((resolve) => resolve("promise1"))
 let promise2 = (msg) => new Promise((resolve) => resolve(msg + " promise2"))
