@@ -18,7 +18,7 @@ let greeter = (greeting) => {
     }
 }
 
-let ourGreeting = greeter("Welcome")
-ourGreeting("Rohan")
+let greet = greeter("Welcome")
+greet("Rohan")
 //use double parentheses to invoke the returned function as well
 greeter("Hey")("Rohan")
