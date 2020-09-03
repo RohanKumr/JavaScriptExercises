@@ -1,5 +1,5 @@
 /* First-class functions 
-It is when functions in that language are treated like any other variable */
+are when functions in that language are treated like any other variable */
 
 //Assign a function as a variable
 let sayHello = () => "Hello";
