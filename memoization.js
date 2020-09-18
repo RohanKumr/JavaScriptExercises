@@ -37,4 +37,6 @@ function fib(n, prevValues = []) {
   return result;
 }
 
+const start = new Date();
 console.log(fib(150));
+console.log(new Date() - start);
