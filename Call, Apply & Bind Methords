@@ -1,0 +1,37 @@
+//Call, Apply & Bind
+const car1 = {
+  brand: "Chevrolet",
+  name: "Corvette",
+  type: "sports",
+  year: 2005,
+};
+
+const car2 = {
+  brand: "Porsche",
+  name: "Carrera GT",
+  type: "sports",
+  year: 2003,
+};
+const award = "Best of What's New in 2003.";
+
+const introduce = function (award) {
+  console.log(
+    `The best ${this.type} car of ${this.year} was offered by ${
+      this.brand
+    }, named ${this.name} ${
+      award ? "and it recieved an award of " + award : ""
+    }`
+  );
+};
+
+//function borrowing
+//car2 here is where this needs to be pointed
+//if recieved a reward pass reward.
+introduce.call(car1);
+//args > 0 are passed in an array in apply
+introduce.apply(car2, [award]);
+
+//BIND method
+//returns the introduce fn with reference to car2 and award for invocation
+const bindAward = introduce.bind(car2, award);
+bindAward();
