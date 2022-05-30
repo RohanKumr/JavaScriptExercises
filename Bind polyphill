@@ -3,32 +3,25 @@ const obj = {
   key: "value",
 };
 
-const p1 = "param1";
-const p2 = "param2";
-const p3 = "param3";
-const p4 = "param4";
+function print(...arr) {
+  console.log(this.key, ...arr);
+}
 
-const print = function (...args) {
-  console.log(this.key, ...args);
-};
-
-//BIND method
-const callBind = print.bind(obj, p1, p3);
-callBind(p2, p4);
-
-//Polyfill for bind method
 Function.prototype.myBind = function (...args) {
-  const fun = this;
-  const args1 = args.splice(1);
-  return function (...args2) {
-    fun.apply(args[0], [...args1, ...args2]);
+  const params = args.splice(1);
+  return (...args2) => {
+    return this.apply(args[0], [...params, ...args2]);
   };
 };
 
-const callMyBind = print.myBind(obj, p1, p3);
-callMyBind(p2, p4);
+const res = print.bind(obj, "val2", "val3");
+const myRes = print.myBind(obj, "val2", "val3");
+
+res("val4", "val5");
+myRes("val4", "val5");
+
 
 /** Output
-* value param1 param3 param2 param4
-* value param1 param3 param2 param4
+* value val2 val3 val4 val5
+* value val2 val3 val4 val5
 */
