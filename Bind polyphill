@@ -8,10 +8,7 @@ function print(...arr) {
 }
 
 Function.prototype.myBind = function (...args) {
-  const params = args.splice(1);
-  return (...args2) => {
-    return this.apply(args[0], [...params, ...args2]);
-  };
+  return (...args2) => this.apply(args[0], [...args.splice(1), ...args2]);
 };
 
 const res = print.bind(obj, "val2", "val3");
