@@ -1,0 +1,12 @@
+//flat, n-level depth
+const { isArray } = Array;
+const flatten = (arr) => {
+  const result = arr.reduce(
+    (acc, item) =>
+      isArray(item) ? [...acc, ...flatten(item)] : [...acc, item],
+    []
+  );
+  return result;
+};
+
+console.log(flatten(array));
