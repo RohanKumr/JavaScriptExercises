@@ -38,8 +38,6 @@ document.addEventListener('click', (e) => {
   if(circlesCords.length == 2) {
     const { x: x1, y: y1, radius: r1 } = circlesCords[0]
     const { x: x2, y: y2, radius: r2 } = circlesCords[1]
-    console.log(x1, y1, x2, y2, r1, r2);
-
 
     const a = x1 - x2;
     const b = y1 - y2;
